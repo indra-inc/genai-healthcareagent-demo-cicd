@@ -51,12 +51,22 @@ jobs:
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.WINDOWS_SSH_PRIVATE_KEY }}" > ~/.ssh/github_cd
+
+          cat << 'EOF' > ~/.ssh/github_cd
+          ${{ secrets.WINDOWS_SSH_PRIVATE_KEY }}
+          EOF
+
           chmod 600 ~/.ssh/github_cd
+
+          echo "===== KEY CHECK ====="
+          ssh-keygen -lf ~/.ssh/github_cd
 
       - name: Deploy To Windows Server
         run: |
-          ssh -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -T \
+          ssh -vvv \
+          -o BatchMode=yes \
+          -o IdentitiesOnly=yes \
+          -o StrictHostKeyChecking=no \
           -i ~/.ssh/github_cd \
-          Uttam@100.81.202.58 \
-          "powershell -ExecutionPolicy Bypass -File 'E:\Projects\Deployment\medical-bot-with-cicd\deploy.ps1'; exit"
+          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+          "hostname"
