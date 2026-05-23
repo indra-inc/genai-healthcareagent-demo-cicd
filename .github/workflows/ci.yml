@@ -40,25 +40,26 @@ jobs:
 
   deploy:
 
-    needs: test
-
     runs-on: ubuntu-latest
+
+    needs: test
 
     steps:
 
       - name: Connect To Tailscale
-        uses: tailscale/github-action@v4
+        uses: tailscale/github-action@v3
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
 
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_cd
+          echo "${{ secrets.WINDOWS_SSH_PRIVATE_KEY }}" > ~/.ssh/github_cd
           chmod 600 ~/.ssh/github_cd
 
       - name: Deploy To Windows Server
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/github_cd Uttam@100.81.202.58 '
-            powershell -ExecutionPolicy Bypass -File E:\Projects\Deployment\medical-bot-with-cicd\deploy.ps1
-          '
+          ssh -o StrictHostKeyChecking=no \
+          -i ~/.ssh/github_cd \
+          Uttam@100.81.202.58 \
+          "powershell -ExecutionPolicy Bypass -File E:\Projects\Deployment\medical-bot-with-cicd\deploy.ps1"
