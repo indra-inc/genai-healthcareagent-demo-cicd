@@ -8,13 +8,6 @@ from app.tools.patient_tools import get_patient_record
 from app.tools.lab_tools import analyze_lab_values
 
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    google_api_key=settings.GEMINI_API_KEY,
-    temperature=0.3
-)
-
-
 TOOLS = [
     get_patient_record,
     analyze_lab_values
@@ -54,25 +47,35 @@ Thought:{agent_scratchpad}
 )
 
 
-agent = create_react_agent(
-    llm=llm,
-    tools=TOOLS,
-    prompt=prompt
-)
+def create_agent_executor():
 
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash",
+        google_api_key=settings.GEMINI_API_KEY,
+        temperature=0.3
+    )
 
-agent_executor = AgentExecutor(
-    agent=agent,
-    tools=TOOLS,
-    verbose=True,
-    max_iterations=5,
-    handle_parsing_errors=True
-)
+    agent = create_react_agent(
+        llm=llm,
+        tools=TOOLS,
+        prompt=prompt
+    )
+
+    return AgentExecutor(
+        agent=agent,
+        tools=TOOLS,
+        verbose=True,
+        max_iterations=5,
+        handle_parsing_errors=True
+    )
 
 
 def ask_healthcare_agent(query: str) -> str:
 
     try:
+
+        agent_executor = create_agent_executor()
+
         response = agent_executor.invoke(
             {
                 "input": query
@@ -82,6 +85,7 @@ def ask_healthcare_agent(query: str) -> str:
         return response["output"]
 
     except Exception as e:
+
         return (
             f"Healthcare agent failed "
             f"to process request: {str(e)}"
