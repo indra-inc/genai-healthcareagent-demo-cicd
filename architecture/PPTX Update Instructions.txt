@@ -1,0 +1,406 @@
+Create a professional, visually rich, enterprise-quality PPTx document similar to a modern technical architecture handbook.
+
+STYLE REQUIREMENTS:
+
+* Same visual quality as high-end NotebookLM generated architecture PPTXs
+* Use diagrams, flowcharts, layered architecture visuals, pipeline arrows, icons, and sectioned pages
+* Use modern DevOps visual storytelling
+* Use concise but highly professional explanations
+* Use white/gray blueprint background styling
+* Use GitHub, Render, FastAPI, Python, CI/CD themed visuals
+* Make the PPTX suitable for:
+
+  * Job interviews
+  * Portfolio presentation
+  * DevOps explanation
+  * CI/CD learning
+  * Software engineering discussions
+
+TITLE:
+"The Journey of Code: A Developer’s Guide to Modern Cloud CI/CD"
+
+SUBTITLE:
+"Automating FastAPI Healthcare Agent Deployment using GitHub Actions and Render"
+
+IMPORTANT:
+This architecture NO LONGER uses:
+
+* Windows 10 LTSC Server
+* Tailscale
+* OpenSSH
+* PowerShell deployment
+* SSH-based deployment
+
+This is now a fully cloud-native deployment architecture using Render.
+
+==================================================
+SECTION 1 — INTRODUCTION
+========================
+
+Explain the project:
+
+A production-style AI-powered Healthcare Agent backend built using FastAPI and deployed through a modern CI/CD pipeline using GitHub Actions and Render cloud hosting.
+
+Mention:
+
+* Automated testing
+* Automated deployment
+* Cloud-native hosting
+* Health checks
+* Environment variable management
+* Production-grade deployment workflow
+
+==================================================
+SECTION 2 — FINAL ARCHITECTURE OVERVIEW
+=======================================
+
+Create a large architecture diagram showing:
+
+Developer Machine
+↓
+GitHub Repository
+↓
+GitHub Actions CI Pipeline
+↓
+Ruff Linter
+↓
+Pytest Validation
+↓
+Deployment Gate
+↓
+Render Deploy Hook
+↓
+Render Cloud Build System
+↓
+FastAPI + Uvicorn Runtime
+↓
+Health Check Validation
+↓
+Live Production API
+
+Add professional explanations for each stage.
+
+==================================================
+SECTION 3 — TECHNOLOGY STACK
+============================
+
+Create a professional table.
+
+Columns:
+
+* Component
+* Technology
+* Purpose
+
+Include:
+
+Backend API → FastAPI + Uvicorn
+CI Engine → GitHub Actions
+Code Quality → Ruff
+Testing → Pytest
+Hosting → Render
+Version Control → Git + GitHub
+Runtime → Python 3.13.5
+Deployment Trigger → Render Deploy Hook
+Environment Management → Render Environment Variables
+
+==================================================
+SECTION 4 — PHASE 1: LOCAL DEVELOPMENT
+======================================
+
+Explain:
+
+Developer creates the FastAPI healthcare agent locally using:
+
+* VS Code
+* Python virtual environment
+* FastAPI
+* Uvicorn
+
+Explain:
+
+* Local testing
+* API endpoint creation
+* Requirement management
+* Git commits
+
+Include diagrams.
+
+==================================================
+SECTION 5 — PHASE 2: GITHUB REPOSITORY
+======================================
+
+Explain:
+
+* GitHub as centralized source control
+* main branch workflow
+* Git push triggering CI pipeline
+* Version tracking
+
+Show:
+git push origin main
+
+Include professional visuals.
+
+==================================================
+SECTION 6 — PHASE 3: GITHUB ACTIONS CI PIPELINE
+===============================================
+
+Create a detailed step-by-step CI orchestration diagram.
+
+Explain:
+
+1. Checkout Repository
+2. Setup Python 3.13.5
+3. Install Dependencies
+4. Run Ruff Linter
+5. Run Pytest
+6. Deployment Gate Validation
+
+Explain:
+
+* Why CI is important
+* How failed tests block deployment
+* Why automated quality gates matter
+
+==================================================
+SECTION 7 — THE DEPLOYMENT GATE
+===============================
+
+Create a dedicated visual section showing:
+
+PASS FLOW:
+Tests pass
+→ deployment allowed
+
+FAIL FLOW:
+Tests fail
+→ deployment blocked
+
+Explain:
+
+* Production safety
+* Automated quality assurance
+* Preventing broken deployments
+
+==================================================
+SECTION 8 — WHY RENDER?
+=======================
+
+Explain why Render was selected:
+
+* Free tier available
+* No credit card required
+* Native FastAPI support
+* GitHub integration
+* Automatic HTTPS
+* Managed infrastructure
+* Zero server maintenance
+* Cloud-native deployment
+* Easy environment variable management
+
+Compare briefly against:
+
+* Self-hosted Windows server
+* Manual VPS deployment
+
+==================================================
+SECTION 9 — RENDER CLOUD DEPLOYMENT ARCHITECTURE
+================================================
+
+Create a cloud-native deployment architecture diagram.
+
+GitHub Actions
+↓
+Render Deploy Hook
+↓
+Render Build System
+↓
+Dependency Installation
+↓
+Uvicorn Startup
+↓
+FastAPI Runtime
+↓
+Public HTTPS Endpoint
+
+Explain:
+
+* Render automatically pulls latest code
+* Builds application
+* Installs dependencies
+* Starts FastAPI server
+* Runs health checks
+
+==================================================
+SECTION 10 — FASTAPI STARTUP CONFIGURATION
+==========================================
+
+Explain the production startup command:
+
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+Explain:
+
+* Why 0.0.0.0 is required
+* Why Render injects $PORT dynamically
+* Difference between local port and cloud port
+* Why fixed ports should NOT be used in cloud hosting
+
+==================================================
+SECTION 11 — ENVIRONMENT VARIABLES
+==================================
+
+Explain environment variables professionally.
+
+Include:
+GEMINI_API_KEY
+
+Explain:
+
+* Secrets management
+* Why API keys should never be hardcoded
+* Render Environment Variables system
+* Secure runtime injection
+
+==================================================
+SECTION 12 — HEALTH CHECKS
+==========================
+
+Explain the importance of health checks.
+
+Include:
+GET /health
+
+Explain:
+
+* Render continuously validates service availability
+* Deployment only becomes LIVE after health check passes
+* Production monitoring concept
+
+Show:
+{
+"status": "healthy"
+}
+
+==================================================
+SECTION 13 — FINAL GITHUB ACTIONS WORKFLOW
+==========================================
+
+Show the FINAL CLEAN workflow logic.
+
+Explain:
+
+* Push to main branch
+* CI validation
+* Deployment trigger
+* Render automated deployment
+
+Explain how Render Deploy Hooks integrate with GitHub Actions.
+
+==================================================
+SECTION 14 — COMPLETE EXECUTION FLOW
+====================================
+
+Create a premium visual timeline.
+
+1. Developer writes code
+2. Git commit
+3. Push to GitHub
+4. GitHub Actions starts
+5. Python setup
+6. Dependency installation
+7. Ruff validation
+8. Pytest execution
+9. Deployment approved
+10. Render deploy hook triggered
+11. Render pulls code
+12. Build starts
+13. Uvicorn starts
+14. Health checks run
+15. Production API becomes live
+
+==================================================
+SECTION 15 — PRODUCTION BENEFITS
+================================
+
+Explain benefits of this architecture:
+
+* Fully automated deployment
+* Cloud-native infrastructure
+* Scalable architecture
+* No manual deployment
+* Faster release cycles
+* Reduced production risk
+* Better developer productivity
+* Industry-standard DevOps workflow
+
+==================================================
+SECTION 16 — INTERVIEW PREPARATION SECTION
+==========================================
+
+Create interview questions with answers.
+
+Examples:
+
+Q1. Why use CI/CD?
+Q2. What is GitHub Actions?
+Q3. Why use Render instead of manual VPS hosting?
+Q4. What happens if Pytest fails?
+Q5. Why use environment variables?
+Q6. What is a deployment hook?
+Q7. Why is health check important?
+Q8. Why should APIs not use fixed ports in cloud deployment?
+Q9. Difference between CI and CD?
+Q10. What role does Uvicorn play?
+
+Provide strong professional answers.
+
+==================================================
+SECTION 17 — DEVOPS VOCABULARY
+==============================
+
+Create a final glossary section.
+
+Include:
+
+* CI
+* CD
+* Pipeline
+* Workflow
+* Deploy Hook
+* Health Check
+* Cloud Hosting
+* Environment Variable
+* Uvicorn
+* ASGI
+* FastAPI
+* GitHub Actions
+* Render
+
+==================================================
+SECTION 18 — FINAL SUMMARY
+==========================
+
+End with a premium conclusion page explaining:
+
+This project demonstrates:
+
+* Modern cloud-native CI/CD
+* FastAPI deployment engineering
+* Automated software delivery
+* Production-grade development workflow
+* DevOps fundamentals
+* Real-world deployment practices
+
+The architecture reflects practical software engineering and deployment engineering skills suitable for production environments and technical interviews.
+
+IMPORTANT FINAL INSTRUCTION:
+The document should feel like:
+
+* A premium DevOps handbook
+* Enterprise architecture documentation
+* Technical interview preparation material
+* Professional portfolio content
+
+The quality should be visually exceptional and significantly better than a basic tutorial PPTX.
