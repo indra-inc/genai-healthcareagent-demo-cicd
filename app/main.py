@@ -15,7 +15,7 @@ app = FastAPI(
 @app.get("/")
 async def root():
     return {
-        "message": "GitHub Actions CD Successfully Working 🚀 - Indra",
+        "message": "GitHub Actions CD Successfully Working 🚀 - IndraINC",
         "status": "healthy",
         "version": settings.API_VERSION,
     }
